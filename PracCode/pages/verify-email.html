@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email | PracCode</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Authentication CSS -->
+    <link rel="stylesheet" href="../css/authentication.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-container">
+
+        <!-- Logo -->
+        <a href="../index.html" class="auth-logo">
+            <i class="fa-solid fa-code"></i>
+            Prac<span>Code</span>
+        </a>
+
+        <!-- Verification Icon -->
+        <div class="auth-verification-icon">
+            <i class="fa-solid fa-envelope-circle-check"></i>
+        </div>
+
+        <!-- Page Header -->
+        <div class="auth-header">
+            <h1>Verify Your Email</h1>
+
+            <p>
+                We've sent a verification code to your email address.
+                Enter the 6-digit code below to continue.
+            </p>
+
+            <strong id="verification-email">
+                your-email@example.com
+            </strong>
+        </div>
+
+        <!-- Verification Form -->
+        <form id="verification-form" class="auth-form">
+
+            <div class="auth-form-group">
+                <label for="verification-code">
+                    Verification Code
+                </label>
+
+                <input
+                    type="text"
+                    id="verification-code"
+                    name="verificationCode"
+                    class="auth-verification-code"
+                    placeholder="Enter 6-digit code"
+                    inputmode="numeric"
+                    pattern="[0-9]{6}"
+                    maxlength="6"
+                    minlength="6"
+                    autocomplete="one-time-code"
+                    required
+                >
+            </div>
+
+            <!-- Verify Button -->
+            <button type="submit" class="auth-button">
+                Verify Email
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Message -->
+            <div
+                id="verification-message"
+                class="auth-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </form>
+
+        <!-- Resend Code -->
+        <div class="auth-bottom-text">
+            <p>Didn't receive the code?</p>
+
+            <button
+                type="button"
+                id="resend-verification-code"
+                class="auth-resend-button"
+            >
+                Resend Code
+            </button>
+        </div>
+
+        <!-- Back to Login -->
+        <a href="login.html" class="auth-back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Login
+        </a>
+
+        <!-- Back to Homepage -->
+        <a href="../index.html" class="auth-back-link">
+            <i class="fa-solid fa-house"></i>
+            Back to Homepage
+        </a>
+
+    </main>
+
+    <!-- Authentication JavaScript -->
+    <script src="../js/authemtication.js"></script>
+
+</body>
+</html>

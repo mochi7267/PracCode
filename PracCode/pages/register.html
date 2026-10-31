@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | PracCode</title>
+  <link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../css/authentication.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="auth-page">
+  <main class="auth-container">
+    <a href="../index.html" class="auth-logo"><i class="fa-solid fa-code"></i><span>Prac<span class="gradient-text">Code</span></span></a>
+    <div class="auth-header"><h1>Create your account</h1><p>Join PracCode and start improving your typing skills.</p></div>
+    <form id="register-form" class="auth-form">
+      <div class="auth-form-group"><label for="register-name">Full Name</label><div class="auth-input-wrapper"><i class="fa-regular fa-user"></i><input id="register-name" name="name" type="text" placeholder="Enter your full name" maxlength="100" autocomplete="name" required></div></div>
+      <div class="auth-form-group"><label for="register-username">Username</label><div class="auth-input-wrapper"><i class="fa-solid fa-at"></i><input id="register-username" name="username" type="text" placeholder="Choose a username" minlength="3" maxlength="50" pattern="[A-Za-z0-9_.-]+" title="Use letters, numbers, dots, underscores or hyphens." autocomplete="username" required></div></div>
+      <div class="auth-form-group"><label for="register-email">Email Address</label><div class="auth-input-wrapper"><i class="fa-regular fa-envelope"></i><input id="register-email" name="email" type="email" placeholder="Enter your email" maxlength="150" autocomplete="email" required></div></div>
+      <div class="auth-form-group"><label for="register-password">Password</label><div class="auth-input-wrapper"><i class="fa-solid fa-lock"></i><input id="register-password" name="password" type="password" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" required><button type="button" class="password-toggle" data-password-toggle="register-password" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></div>
+      <div class="auth-form-group"><label for="register-confirm-password">Confirm Password</label><div class="auth-input-wrapper"><i class="fa-solid fa-lock"></i><input id="register-confirm-password" name="confirmPassword" type="password" placeholder="Re-enter your password" autocomplete="new-password" required><button type="button" class="password-toggle" data-password-toggle="register-confirm-password" aria-label="Show password"><i class="fa-regular fa-eye"></i></button></div></div>
+      <label class="auth-remember"><input type="checkbox" name="terms" required><span>I agree to the Terms of Service and Privacy Policy.</span></label>
+      <button type="submit" class="auth-button"><span>Create Account</span><i class="fa-solid fa-arrow-right"></i></button>
+      <div id="register-message" class="auth-message" role="status" aria-live="polite"></div>
+    </form>
+    <p class="auth-bottom-text">Already have an account? <a href="login.html">Sign in</a></p>
+    <a href="../index.html" class="auth-back-link"><i class="fa-solid fa-arrow-left"></i> Back to homepage</a>
+  </main>
+  <script src="../js/authentication.js"></script>
+</body></html>

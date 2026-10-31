@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="PracCode is a coding practice platform that helps developers improve their typing speed, accuracy, and coding skills.">
+
+    <title>PracCode | Practice. Type. Improve.</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Homepage Styles -->
+    <style>
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(108, 99, 255, 0.15), transparent 35%),
+                var(--bg-primary);
+        }
+
+        .hero-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-bottom: 22px;
+            color: #aaa5ff;
+            background: rgba(108, 99, 255, 0.13);
+            border: 1px solid rgba(108, 99, 255, 0.25);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.12;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero-description {
+            color: var(--color-text-muted);
+            font-size: 17px;
+            max-width: 520px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .code-window {
+            background: #111a30;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+        }
+
+        .code-window-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 17px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .window-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background: #ff5f57;
+        }
+
+        .dot-yellow {
+            background: #febc2e;
+        }
+
+        .dot-green {
+            background: #28c840;
+        }
+
+        .code-window-title {
+            margin-left: auto;
+            color: #8993ad;
+            font-size: 12px;
+        }
+
+        .code-content {
+            padding: 28px 25px;
+            color: #cbd5e1;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 2;
+            overflow-x: auto;
+        }
+
+        .code-line {
+            white-space: pre;
+        }
+
+        .code-purple {
+            color: #c792ea;
+        }
+
+        .code-blue {
+            color: #82aaff;
+        }
+
+        .code-green {
+            color: #c3e88d;
+        }
+
+        .code-orange {
+            color: #f78c6c;
+        }
+
+        .code-cursor {
+            display: inline-block;
+            width: 7px;
+            height: 17px;
+            background: #8b80ff;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            right: -25px;
+            bottom: -25px;
+            padding: 17px 22px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-floating-card strong {
+            display: block;
+            font-size: 20px;
+            color: #8c83ff;
+        }
+
+        .hero-floating-card span {
+            color: var(--color-text-muted);
+            font-size: 12px;
+        }
+
+        /* FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            background: rgba(108, 99, 255, 0.15);
+            font-size: 24px;
+        }
+
+        /* HOW IT WORKS */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step-number {
+            color: var(--color-primary);
+            font-size: 35px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        /* ABOUT */
+        .about-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-preview p {
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+        }
+
+        .about-highlight {
+            padding: 30px;
+            background: linear-gradient(135deg, #171e3a, #252052);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+        }
+
+        .about-highlight h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 75px 25px;
+            text-align: center;
+            background: linear-gradient(135deg, #252052, #102c4b);
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #c3c7df;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* SMOOTH SCROLL */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+
+            .hero-container,
+            .about-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero-visual {
+                max-width: 600px;
+                width: 100%;
+                margin: 20px auto 0;
+            }
+
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-floating-card {
+                right: 5px;
+                bottom: -20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+
+        <div class="navbar-container">
+
+            <a href="#home" class="logo">
+                Prac<span>Code</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <nav class="nav-links" id="nav-links">
+
+                <a href="#home" class="active">Home</a>
+
+                <a href="#features">Features</a>
+
+                <a href="#how-it-works">How It Works</a>
+
+                <!-- ABOUT NOW SCROLLS DOWN -->
+                <a href="#about-preview">About</a>
+
+                <a href="pages/login.html" class="btn btn-primary">
+                    Get Started
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        Your Coding Practice Starts Here
+                    </span>
+
+                    <h1 class="hero-title">
+                        Practice Code.
+                        <span class="gradient-text">Build Speed.</span>
+                        Improve Every Day.
+                    </h1>
+
+                    <p class="hero-description">
+                        Improve your coding speed, accuracy, and confidence
+                        through interactive typing challenges. Practice your
+                        code, track your progress, and become a better developer.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="pages/login.html" class="btn btn-primary">
+                            Start Practicing →
+                        </a>
+
+                        <a href="#about-preview" class="btn btn-secondary">
+                            Learn More
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CODE EDITOR PREVIEW -->
+                <div class="hero-visual">
+
+                    <div class="code-window">
+
+                        <div class="code-window-header">
+
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+
+                            <span class="code-window-title">
+                                practice.html
+                            </span>
+
+                        </div>
+
+                        <div class="code-content">
+
+                            <div class="code-line">
+                                <span class="code-purple">&lt;!DOCTYPE</span>
+                                <span class="code-green"> html</span>
+                                <span class="code-purple">&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                <span class="code-purple">&lt;html</span>
+                                <span class="code-blue"> lang</span>=<span class="code-green">"en"</span><span class="code-purple">&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;<span class="code-purple">&lt;head&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">&lt;title&gt;</span>
+                                <span class="code-orange">My First Code</span>
+                                <span class="code-purple">&lt;/title&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;<span class="code-purple">&lt;/head&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;<span class="code-purple">&lt;body&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">&lt;h1&gt;</span>
+                                <span class="code-orange">Hello, Developer!</span>
+                                <span class="code-purple">&lt;/h1&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">&lt;p&gt;</span>
+                                <span class="code-orange">Keep practicing!</span>
+                                <span class="code-purple">&lt;/p&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;<span class="code-purple">&lt;/body&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                <span class="code-purple">&lt;/html&gt;</span>
+                                <span class="code-cursor"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-floating-card">
+                        <strong>100%</strong>
+                        <span>Practice makes progress</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES SECTION -->
+        <section class="section" id="features">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Everything You Need to
+                    <span class="gradient-text">Improve</span>
+                </h2>
+
+                <p class="section-description">
+                    Build better coding habits with tools designed to help
+                    you practice, measure, and improve.
+                </p>
+
+                <div class="features-grid">
+
+                    <div class="card reveal">
+                        <div class="feature-icon">⌨️</div>
+                        <h3 class="card-title">Typing Practice</h3>
+                        <p class="card-description">
+                            Practice typing real code snippets and improve
+                            your coding speed and accuracy.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="card-title">Track Progress</h3>
+                        <p class="card-description">
+                            Monitor your typing speed, accuracy, mistakes,
+                            and practice history.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="feature-icon">🏆</div>
+                        <h3 class="card-title">Leaderboard</h3>
+                        <p class="card-description">
+                            Compare your performance with other players
+                            and challenge yourself to improve.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="card-title">Daily Challenges</h3>
+                        <p class="card-description">
+                            Complete daily coding exercises and build
+                            a consistent practice routine.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="card-title">Multiple Difficulties</h3>
+                        <p class="card-description">
+                            Choose from Easy, Medium, Hard, and Advanced
+                            practice levels.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="feature-icon">🌟</div>
+                        <h3 class="card-title">Achievements</h3>
+                        <p class="card-description">
+                            Celebrate milestones and stay motivated
+                            as you develop your skills.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS SECTION -->
+        <section class="section" id="how-it-works">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    How <span class="gradient-text">PracCode</span> Works
+                </h2>
+
+                <p class="section-description">
+                    Start practicing in three simple steps.
+                </p>
+
+                <div class="steps-grid">
+
+                    <div class="card reveal">
+                        <div class="step-number">01</div>
+                        <h3 class="card-title">Choose Your Challenge</h3>
+                        <p class="card-description">
+                            Select your preferred difficulty and
+                            coding practice activity.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="step-number">02</div>
+                        <h3 class="card-title">Start Typing</h3>
+                        <p class="card-description">
+                            Type the displayed code and challenge
+                            yourself to improve your performance.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="step-number">03</div>
+                        <h3 class="card-title">Review Your Results</h3>
+                        <p class="card-description">
+                            Check your speed, accuracy, mistakes,
+                            and progress after every practice.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT PREVIEW SECTION -->
+        <section class="section" id="about-preview">
+
+            <div class="container">
+
+                <div class="about-preview">
+
+                    <div>
+
+                        <h2 class="section-title" style="text-align: left;">
+                            More Than Just
+                            <span class="gradient-text">Typing</span>
+                        </h2>
+
+                        <p>
+                            PracCode is designed to make coding practice
+                            more engaging and accessible. It provides a
+                            space where learners and developers can
+                            strengthen their familiarity with code.
+                        </p>
+
+                        <p>
+                            Whether you are just starting or already
+                            experienced, regular practice can help you
+                            become more comfortable typing code.
+                        </p>
+
+                        <!-- SCROLL TO ABOUT SECTION -->
+                        <a href="#about-preview" class="btn btn-primary">
+                            Discover PracCode →
+                        </a>
+
+                    </div>
+
+                    <div class="about-highlight">
+
+                        <h3>Practice at Your Own Pace</h3>
+
+                        <p class="text-muted">
+                            Choose your difficulty, practice with code
+                            snippets, and work toward your personal goals.
+                        </p>
+
+                        <div class="divider"></div>
+
+                        <p>
+                            <span class="gradient-text">Easy</span>
+                            &nbsp; Beginner friendly
+                        </p>
+
+                        <p>
+                            <span class="gradient-text">Medium</span>
+                            &nbsp; Build your skills
+                        </p>
+
+                        <p>
+                            <span class="gradient-text">Hard</span>
+                            &nbsp; Challenge yourself
+                        </p>
+
+                        <p>
+                            <span class="gradient-text">Advanced</span>
+                            &nbsp; Push your limits
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+        <section class="section">
+
+            <div class="container">
+
+                <div class="cta-section reveal">
+
+                    <h2>
+                        Ready to Improve Your
+                        <span class="gradient-text">Coding Skills?</span>
+                    </h2>
+
+                    <p>
+                        Start practicing today and take another step
+                        toward becoming a better developer.
+                    </p>
+
+                    <a href="pages/login.html" class="btn btn-primary">
+                        Get Started Now →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <a href="#home" class="logo">
+                    Prac<span>Code</span>
+                </a>
+
+                <p style="margin-top: 8px;">
+                    Practice. Type. Improve.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about-preview">About</a>
+                <a href="mailto:praccode@example.com">Contact</a>
+
+            </div>
+
+            <p>
+                © <span id="current-year"></span> PracCode.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

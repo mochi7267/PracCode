@@ -1,0 +1,622 @@
+/* ========================================
+   PRACCODE - LEADERBOARD STYLES
+======================================== */
+
+/* 1. GENERAL SETTINGS */
+
+* {
+    box-sizing: border-box;
+}
+
+.leaderboard-page {
+    min-height: 100vh;
+    background: #080b16;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.leaderboard-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. MAIN CONTAINER */
+
+.leaderboard-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0 70px;
+}
+
+/* 3. BACK BUTTON */
+
+.leaderboard-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #aab2c5;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.leaderboard-back:hover {
+    color: #a78bfa;
+}
+
+/* 4. PAGE HEADER */
+
+.leaderboard-header {
+    margin-bottom: 35px;
+    animation: leaderboardFadeIn 0.6s ease both;
+}
+
+.leaderboard-header h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.leaderboard-header p {
+    color: #aab2c5;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* 5. FILTERS AND SORTING */
+
+.leaderboard-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.difficulty-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.difficulty-filters button {
+    padding: 9px 15px;
+    background: #141a2c;
+    border: 1px solid #303950;
+    border-radius: 8px;
+    color: #aab2c5;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.difficulty-filters button:hover,
+.difficulty-filters button.active {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: #8b5cf6;
+    color: #ffffff;
+}
+
+.leaderboard-sort-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.leaderboard-sort-control label {
+    color: #aab2c5;
+    font-size: 13px;
+}
+
+.leaderboard-sort-control select {
+    padding: 10px 12px;
+    background: #141a2c;
+    color: #ffffff;
+    border: 1px solid #303950;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.leaderboard-sort-control select:focus {
+    border-color: #8b5cf6;
+}
+
+/* 6. SECTION HEADINGS */
+
+.leaderboard-section-heading {
+    margin-bottom: 18px;
+}
+
+.leaderboard-section-heading h2 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.leaderboard-section-heading p {
+    color: #aab2c5;
+    font-size: 13px;
+}
+
+/* 7. TOP THREE PLAYERS */
+
+.leaderboard-podium {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+    gap: 18px;
+    margin: 25px 0 45px;
+}
+
+.podium-card {
+    min-width: 0;
+    padding: 25px 15px;
+    text-align: center;
+    background: #141a2c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.podium-card:hover {
+    transform: translateY(-6px);
+}
+
+.podium-card.first {
+    min-height: 240px;
+    border-color: rgba(250, 204, 21, 0.5);
+    background: linear-gradient(
+        180deg,
+        rgba(250, 204, 21, 0.12),
+        #141a2c
+    );
+}
+
+.podium-card.second {
+    min-height: 210px;
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+.podium-card.third {
+    min-height: 190px;
+    border-color: rgba(192, 132, 87, 0.4);
+}
+
+.podium-medal {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.podium-avatar {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.podium-card.first .podium-avatar {
+    border: 2px solid #facc15;
+}
+
+.podium-card.second .podium-avatar {
+    border: 2px solid #94a3b8;
+}
+
+.podium-card.third .podium-avatar {
+    border: 2px solid #c08457;
+}
+
+.podium-card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.podium-card p {
+    color: #aab2c5;
+    font-size: 12px;
+}
+
+.podium-score {
+    display: block;
+    margin-top: 12px;
+    color: #a78bfa;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.podium-card.first .podium-score {
+    color: #facc15;
+}
+
+/* 8. PLAYER RANKINGS TABLE */
+
+.leaderboard-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #141a2c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.leaderboard-table thead {
+    background: #1b2339;
+}
+
+.leaderboard-table th {
+    padding: 17px 20px;
+    color: #aab2c5;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.leaderboard-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 13px;
+}
+
+.leaderboard-table tbody tr {
+    transition: background 0.3s ease;
+}
+
+.leaderboard-table tbody tr:hover {
+    background: rgba(139, 92, 246, 0.08);
+}
+
+.leaderboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 9. PLAYER INFORMATION */
+
+.leaderboard-player {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.player-avatar {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    font-weight: 700;
+}
+
+.player-information {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.player-information strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.player-information small {
+    color: #aab2c5;
+    font-size: 11px;
+}
+
+.player-difficulty {
+    color: #aab2c5;
+    font-size: 12px;
+}
+
+/* 10. RANK, WPM AND ACCURACY */
+
+.player-rank {
+    color: #a78bfa;
+    font-weight: 700;
+}
+
+.player-wpm {
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+.player-accuracy {
+    color: #86efac;
+    font-weight: 700;
+}
+
+/* 11. CURRENT USER HIGHLIGHT */
+
+.leaderboard-table tr.current-user {
+    background: rgba(139, 92, 246, 0.14);
+}
+
+.leaderboard-table tr.current-user td:first-child {
+    border-left: 3px solid #8b5cf6;
+}
+
+.leaderboard-table tr.current-user .player-information strong {
+    color: #c4b5fd;
+}
+
+/* 12. EMPTY STATE */
+
+.leaderboard-empty {
+    padding: 35px 20px !important;
+    text-align: center;
+    color: #aab2c5;
+}
+
+/* 13. LOAD MORE BUTTON */
+
+.leaderboard-load-more {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 25px;
+    background: #141a2c;
+    border: 1px solid #8b5cf6;
+    border-radius: 9px;
+    color: #c4b5fd;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.leaderboard-load-more:hover {
+    background: #8b5cf6;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* 14. YOUR RANK CARD */
+
+.leaderboard-your-rank {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 22px;
+    background: linear-gradient(
+        120deg,
+        rgba(124, 58, 237, 0.2),
+        rgba(56, 189, 248, 0.1)
+    );
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 14px;
+}
+
+.leaderboard-your-rank h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.leaderboard-your-rank p {
+    color: #aab2c5;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.your-rank-number {
+    color: #a78bfa;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* 15. ANIMATIONS */
+
+@keyframes leaderboardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.leaderboard-header,
+.leaderboard-top-section,
+.leaderboard-rankings-section,
+.leaderboard-your-rank {
+    animation: leaderboardFadeIn 0.6s ease both;
+}
+
+/* 16. TABLET RESPONSIVENESS */
+
+@media (max-width: 750px) {
+    .leaderboard-container {
+        width: 92%;
+        padding: 30px 0 55px;
+    }
+
+    .leaderboard-filters {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .leaderboard-sort-control {
+        width: 100%;
+    }
+
+    .leaderboard-podium {
+        gap: 12px;
+    }
+
+    .podium-card {
+        padding: 20px 10px;
+    }
+
+    .podium-card.first {
+        min-height: 220px;
+    }
+
+    .podium-card.second {
+        min-height: 195px;
+    }
+
+    .podium-card.third {
+        min-height: 180px;
+    }
+
+    .podium-card h3 {
+        font-size: 13px;
+    }
+
+    .podium-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+/* 17. MOBILE RESPONSIVENESS */
+
+@media (max-width: 480px) {
+    .leaderboard-container {
+        width: 92%;
+        padding-top: 25px;
+    }
+
+    .leaderboard-header h1 {
+        font-size: 27px;
+    }
+
+    .difficulty-filters {
+        gap: 6px;
+    }
+
+    .difficulty-filters button {
+        padding: 8px 11px;
+        font-size: 11px;
+    }
+
+    .leaderboard-podium {
+        gap: 7px;
+        margin: 25px 0 35px;
+    }
+
+    .podium-card {
+        padding: 15px 6px;
+        min-height: 165px;
+        border-radius: 12px;
+    }
+
+    .podium-card.first {
+        min-height: 195px;
+    }
+
+    .podium-card.second {
+        min-height: 180px;
+    }
+
+    .podium-card.third {
+        min-height: 165px;
+    }
+
+    .podium-medal {
+        font-size: 24px;
+    }
+
+    .podium-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .podium-card h3 {
+        font-size: 11px;
+    }
+
+    .podium-card p {
+        font-size: 10px;
+    }
+
+    .podium-score {
+        font-size: 11px;
+    }
+
+    .leaderboard-section-heading h2 {
+        font-size: 19px;
+    }
+
+    .leaderboard-your-rank {
+        padding: 18px;
+    }
+
+    .leaderboard-your-rank h3 {
+        font-size: 15px;
+    }
+
+    .your-rank-number {
+        font-size: 25px;
+    }
+}
+
+/* 18. REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .leaderboard-page *,
+    .leaderboard-page *::before,
+    .leaderboard-page *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ========================================
+   CENTERED NAVIGATION BAR
+======================================== */
+
+.leaderboard-page .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leaderboard-page .navbar .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep mobile navigation working */
+@media (max-width: 768px) {
+    .leaderboard-page .navbar .nav-links {
+        display: none;
+        margin: 0;
+    }
+
+    .leaderboard-page .navbar .nav-links.active {
+        display: flex;
+    }
+}

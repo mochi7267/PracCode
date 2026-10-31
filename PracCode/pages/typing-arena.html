@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Typing Arena | PracCode</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Typing Arena CSS -->
+    <link rel="stylesheet" href="../css/typing-arena.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="typing-page">
+
+    <!-- NAVIGATION -->
+    <nav class="typing-navbar">
+
+        <a href="../index.html" class="logo">
+            <i class="fa-solid fa-code"></i>
+            Prac<span>Code</span>
+        </a>
+
+        <div class="typing-nav-links">
+
+            <a href="home.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="typing-arena.html" class="active">
+                <i class="fa-solid fa-keyboard"></i>
+                Practice
+            </a>
+
+            <a href="leaderboard.html">
+                <i class="fa-solid fa-trophy"></i>
+                Leaderboard
+            </a>
+
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </a>
+
+        </div>
+
+        <a href="home.html" class="typing-home-button">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Dashboard
+        </a>
+
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="typing-container">
+
+        <!-- PAGE HEADER -->
+        <header class="typing-header">
+
+            <span class="typing-subtitle">
+                IMPROVE YOUR CODING SPEED
+            </span>
+
+            <h1>Typing Arena</h1>
+
+            <p>
+                Practice typing code, improve your accuracy,
+                and become a faster coder.
+            </p>
+
+        </header>
+
+
+        <!-- PRACTICE SETTINGS -->
+        <section class="typing-settings">
+
+            <!-- PROGRAMMING LANGUAGE -->
+            <div class="typing-setting-group">
+
+                <label for="typing-language">
+                    <i class="fa-solid fa-code"></i>
+                    Programming Language
+                </label>
+
+                <select id="typing-language">
+
+                    <option value="HTML" selected>HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="PHP">PHP</option>
+                    <option value="SQL">SQL</option>
+                    <option value="TypeScript">TypeScript</option>
+                    <option value="Go">Go</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Swift">Swift</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="Rust">Rust</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DIFFICULTY -->
+            <div class="typing-setting-group">
+
+                <label>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Difficulty Level
+                </label>
+
+                <div class="typing-difficulty-options">
+
+                    <button
+                        type="button"
+                        class="difficulty-button active"
+                        data-typing-difficulty="Easy">
+                        Easy
+                    </button>
+
+                    <button
+                        type="button"
+                        class="difficulty-button"
+                        data-typing-difficulty="Medium">
+                        Medium
+                    </button>
+
+                    <button
+                        type="button"
+                        class="difficulty-button"
+                        data-typing-difficulty="Hard">
+                        Hard
+                    </button>
+
+                    <button
+                        type="button"
+                        class="difficulty-button"
+                        data-typing-difficulty="Advanced">
+                        Advanced
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRACTICE DURATION -->
+            <div class="typing-setting-group">
+
+                <label for="typing-duration">
+                    <i class="fa-regular fa-clock"></i>
+                    Practice Duration
+                </label>
+
+                <select id="typing-duration">
+
+                    <option value="30">30 Seconds</option>
+
+                    <option value="60" selected>
+                        1 Minute
+                    </option>
+
+                    <option value="120">
+                        2 Minutes
+                    </option>
+
+                    <option value="180">
+                        3 Minutes
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUSTOM CODE SECTION -->
+        <section class="typing-source-options">
+
+            <div class="typing-section-heading">
+
+                <div>
+
+                    <h2>Choose Your Code</h2>
+
+                    <p>
+                        Practice with our passages or use your own code.
+                    </p>
+
+                </div>
+
+                <i class="fa-solid fa-file-code"></i>
+
+            </div>
+
+
+            <!-- CUSTOM CODE INPUT -->
+            <div class="typing-upload-area">
+
+                <label for="custom-code-input">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Paste Your Custom Code
+                </label>
+
+                <textarea
+                    id="custom-code-input"
+                    placeholder="Paste your programming code here..."
+                    rows="5"
+                ></textarea>
+
+                <button type="button" id="use-custom-code">
+                    <i class="fa-solid fa-check"></i>
+                    Use Custom Code
+                </button>
+
+            </div>
+
+
+            <!-- FILE UPLOAD -->
+            <div class="typing-file-upload">
+
+                <label for="typing-file-input">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    Or Upload a Code File
+                </label>
+
+                <input
+                    type="file"
+                    id="typing-file-input"
+                    accept=".txt,.html,.htm,.css,.js,.py,.java,.c,.cpp,.h,.hpp,.cs,.php,.sql,.ts,.go,.rb,.swift,.kt,.kts,.rs"
+                >
+
+                <p>
+                    Supported files: HTML, CSS, JavaScript, Python,
+                    Java, C, C++, C#, PHP, SQL, TypeScript, Go,
+                    Ruby, Swift, Kotlin, Rust, and TXT.
+                    Maximum file size: 100 KB.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TYPING STATISTICS -->
+        <section class="typing-status-bar">
+
+            <!-- TIMER -->
+            <div class="typing-stat">
+
+                <div class="typing-stat-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <span>Time Left</span>
+                    <h3 id="typing-timer">60</h3>
+                </div>
+
+            </div>
+
+
+            <!-- WPM -->
+            <div class="typing-stat">
+
+                <div class="typing-stat-icon">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+
+                <div>
+                    <span>WPM</span>
+                    <h3 id="typing-wpm">0</h3>
+                </div>
+
+            </div>
+
+
+            <!-- ACCURACY -->
+            <div class="typing-stat">
+
+                <div class="typing-stat-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+
+                <div>
+                    <span>Accuracy</span>
+                    <h3 id="typing-accuracy">100%</h3>
+                </div>
+
+            </div>
+
+
+            <!-- ERRORS -->
+            <div class="typing-stat">
+
+                <div class="typing-stat-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div>
+                    <span>Errors</span>
+                    <h3 id="typing-errors">0</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS BAR -->
+        <section class="typing-progress-container">
+
+            <div class="typing-progress-heading">
+
+                <span>Typing Progress</span>
+
+                <span id="typing-progress-text">0%</span>
+
+            </div>
+
+            <div class="typing-progress-track">
+
+                <div
+                    id="typing-progress"
+                    class="typing-progress-bar"
+                    style="width: 0%;">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TYPING ARENA -->
+        <section class="typing-arena">
+
+            <div class="typing-arena-heading">
+
+                <div>
+
+                    <h2>
+                        <i class="fa-solid fa-keyboard"></i>
+                        Start Typing
+                    </h2>
+
+                    <p>
+                        Type the displayed code as accurately as possible.
+                    </p>
+
+                </div>
+
+                <div class="typing-live-indicator">
+
+                    <span></span>
+                    Practice Mode
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE PASSAGE DISPLAY -->
+            <div
+                class="typing-text-display"
+                aria-label="Code passage to type"
+                aria-live="polite">
+                Your typing passage will appear here.
+            </div>
+
+
+            <!-- TYPING INPUT -->
+            <div class="typing-input-container">
+
+                <label for="typing-input">
+                    Type the code below:
+                </label>
+
+                <textarea
+                    id="typing-input"
+                    class="typing-input"
+                    placeholder="Click here and start typing..."
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    disabled>
+                </textarea>
+
+            </div>
+
+
+            <!-- TYPING CONTROLS -->
+            <div class="typing-controls">
+
+                <button
+                    type="button"
+                    id="typing-start"
+                    class="typing-start-button">
+
+                    <i class="fa-solid fa-play"></i>
+                    Start Practice
+
+                </button>
+
+                <button
+                    type="button"
+                    id="typing-reset"
+                    class="typing-reset-button">
+
+                    <i class="fa-solid fa-rotate-right"></i>
+                    Reset
+
+                </button>
+
+            </div>
+
+
+            <!-- INSTRUCTIONS -->
+            <p class="typing-instruction">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                Your timer starts when you begin typing.
+                Try to maintain both speed and accuracy.
+
+            </p>
+
+        </section>
+
+
+        <!-- PRACTICE RESULTS -->
+        <section class="typing-results" hidden>
+
+            <div class="typing-results-header">
+
+                <i class="fa-solid fa-trophy"></i>
+
+                <h2>Practice Completed!</h2>
+
+                <p>
+                    Here is your typing performance.
+                </p>
+
+            </div>
+
+
+            <div class="typing-results-stats">
+
+                <div>
+                    <span>Words Per Minute</span>
+                    <h3 id="result-wpm">0</h3>
+                </div>
+
+                <div>
+                    <span>Accuracy</span>
+                    <h3 id="result-accuracy">0%</h3>
+                </div>
+
+                <div>
+                    <span>Total Errors</span>
+                    <h3 id="result-errors">0</h3>
+                </div>
+
+            </div>
+
+
+            <button type="button" id="typing-try-again">
+
+                <i class="fa-solid fa-rotate-right"></i>
+                Try Again
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            &copy; <span id="typing-year"></span> PracCode.
+            Keep practicing. Keep improving.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/typing-arena.js"></script>
+
+    <script>
+        document.getElementById("typing-year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

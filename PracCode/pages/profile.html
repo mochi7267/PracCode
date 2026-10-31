@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | PracCode</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="profile-page">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            <i class="fa-solid fa-code"></i>
+            Prac<span>Code</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav-links">
+            <a href="home.html">Dashboard</a>
+            <a href="typing-arena.html">Practice</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="profile.html" class="active">Profile</a>
+        </div>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+
+        <!-- Page Heading -->
+        <div class="profile-page-heading">
+            <div>
+                <span class="profile-subtitle">YOUR ACCOUNT</span>
+                <h1>My Profile</h1>
+                <p>Manage your personal information and track your coding journey.</p>
+            </div>
+        </div>
+
+        <!-- Profile Header -->
+        <section class="profile-header">
+
+            <div class="profile-overview">
+
+                <!-- Profile Picture -->
+                <div class="profile-picture">
+                    <img
+                        id="profile-picture"
+                        src="../assets/images/profile-default.png"
+                        alt="Profile picture"
+                    >
+
+                    <label
+                        for="profile-picture-input"
+                        class="profile-picture-edit"
+                        title="Change profile picture"
+                    >
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profile-picture-input"
+                        accept="image/png, image/jpeg, image/webp, image/gif"
+                        hidden
+                    >
+                </div>
+
+                <!-- Profile Information -->
+                <div class="profile-information">
+                    <h2 id="profile-name">PracCode User</h2>
+                    <p id="profile-username">@praccode_user</p>
+                    <p id="profile-email">user@example.com</p>
+
+                    <p id="profile-bio">
+                        Welcome to my coding journey! I am improving my skills one line at a time.
+                    </p>
+
+                    <p class="profile-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span id="profile-location">Your Location</span>
+                    </p>
+                </div>
+
+                <button id="edit-profile-button" class="profile-edit-button">
+                    <i class="fa-solid fa-pen"></i>
+                    Edit Profile
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Coding Statistics -->
+        <section class="profile-stats">
+
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <i class="fa-solid fa-keyboard"></i>
+                </div>
+                <div>
+                    <h3 id="profile-total-practice">0</h3>
+                    <p>Practice Sessions</p>
+                </div>
+            </div>
+
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <div>
+                    <h3 id="profile-average-wpm">0</h3>
+                    <p>Average WPM</p>
+                </div>
+            </div>
+
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div>
+                    <h3 id="profile-accuracy">0%</h3>
+                    <p>Accuracy</p>
+                </div>
+            </div>
+
+            <div class="profile-stat-card">
+                <div class="profile-stat-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <h3 id="profile-total-minutes">0</h3>
+                    <p>Minutes Practiced</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Profile Content -->
+        <section class="profile-content-grid">
+
+            <!-- Left Column -->
+            <div class="profile-main-column">
+
+                <!-- Achievements -->
+                <div class="profile-card profile-achievements">
+                    <div class="profile-section-heading">
+                        <div>
+                            <h2>Achievements</h2>
+                            <p>Your coding milestones and rewards.</p>
+                        </div>
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+
+                    <div id="profile-achievements-list" class="profile-achievement-list">
+
+                        <div class="profile-achievement-item">
+                            <i class="fa-solid fa-star"></i>
+                            <div>
+                                <h3>First Steps</h3>
+                                <p>Complete your first practice session.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Practice History -->
+                <div class="profile-card profile-history">
+                    <div class="profile-section-heading">
+                        <div>
+                            <h2>Practice History</h2>
+                            <p>Review your recent typing sessions.</p>
+                        </div>
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+
+                    <div id="profile-history-list" class="profile-history-list">
+                        <p class="profile-empty-message">
+                            Your practice sessions will appear here.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column -->
+            <div class="profile-side-column">
+
+                <!-- Personal Details -->
+                <div class="profile-card profile-details">
+                    <div class="profile-section-heading">
+                        <h2>Personal Details</h2>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="profile-details-list">
+
+                        <div>
+                            <span>Full Name</span>
+                            <strong id="profile-detail-name">PracCode User</strong>
+                        </div>
+
+                        <div>
+                            <span>Email Address</span>
+                            <strong id="profile-detail-email">user@example.com</strong>
+                        </div>
+
+                        <div>
+                            <span>Location</span>
+                            <strong id="profile-detail-location">Your Location</strong>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="profile-card profile-skills">
+                    <div class="profile-section-heading">
+                        <div>
+                            <h2>Coding Skills</h2>
+                            <p>Languages you are practicing.</p>
+                        </div>
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <div id="profile-skills-list" class="profile-skills-list">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+
+                    <div class="profile-add-skill">
+                        <input
+                            type="text"
+                            id="new-skill"
+                            placeholder="Add a skill..."
+                        >
+
+                        <button
+                            id="add-skill-button"
+                            type="button"
+                            aria-label="Add skill"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Edit Profile Form -->
+        <section id="edit-profile-form" class="profile-edit-form" hidden>
+
+            <div class="profile-section-heading">
+                <div>
+                    <h2>Edit Profile</h2>
+                    <p>Update your personal information.</p>
+                </div>
+                <i class="fa-solid fa-user-pen"></i>
+            </div>
+
+            <form id="profile-update-form">
+
+                <div class="profile-edit-fields">
+
+                    <div class="profile-form-group">
+                        <label for="edit-name">Full Name</label>
+                        <input
+                            type="text"
+                            id="edit-name"
+                            name="name"
+                            placeholder="Enter your name"
+                        >
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label for="edit-username">Username</label>
+                        <input
+                            type="text"
+                            id="edit-username"
+                            name="username"
+                            placeholder="Enter your username"
+                        >
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label for="edit-email">Email Address</label>
+                        <input
+                            type="email"
+                            id="edit-email"
+                            name="email"
+                            placeholder="Enter your email"
+                        >
+                    </div>
+
+                    <div class="profile-form-group">
+                        <label for="edit-location">Location</label>
+                        <input
+                            type="text"
+                            id="edit-location"
+                            name="location"
+                            placeholder="Enter your location"
+                        >
+                    </div>
+
+                    <div class="profile-form-group profile-form-full">
+                        <label for="edit-bio">About Me</label>
+                        <textarea
+                            id="edit-bio"
+                            name="bio"
+                            placeholder="Write something about yourself..."
+                        ></textarea>
+                    </div>
+
+                </div>
+
+                <div class="profile-edit-actions">
+                    <button type="submit" class="profile-save-button">
+                        <i class="fa-solid fa-check"></i>
+                        Save Changes
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-profile-edit"
+                        class="profile-cancel-button"
+                    >
+                        Cancel
+                    </button>
+                </div>
+
+                <p
+                    id="profile-edit-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            &copy; <span id="current-year"></span> PracCode.
+            Keep practicing. Keep improving.
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/profile.js"></script>
+
+    <script>
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

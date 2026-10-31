@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS praccode_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE praccode_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    profile_picture VARCHAR(255) NULL,
+    bio TEXT NULL,
+    location VARCHAR(100) NULL,
+    email_verified TINYINT(1) NOT NULL DEFAULT 0,
+    created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS typing_results (
+    result_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    language VARCHAR(50) NOT NULL,
+    difficulty VARCHAR(30) NOT NULL,
+    wpm INT NOT NULL DEFAULT 0,
+    accuracy DECIMAL(5,2) NOT NULL DEFAULT 0,
+    duration_seconds INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS user_settings (
+    setting_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL UNIQUE,
+    theme VARCHAR(20) NOT NULL DEFAULT 'dark',
+    sound_effects TINYINT(1) NOT NULL DEFAULT 1,
+    font_size VARCHAR(20) NOT NULL DEFAULT 'medium',
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);

@@ -1,0 +1,491 @@
+
+/* ========================================
+   PRACCODE - AUTHENTICATION STYLES
+======================================== */
+
+/* 1. GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.auth-page {
+    min-height: 100vh;
+    min-height: 100svh;
+    font-family: 'Poppins', sans-serif;
+    background: #080b16;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 2. BACKGROUND EFFECT */
+
+.auth-page::before,
+.auth-page::after {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.auth-page::before {
+    top: -150px;
+    left: -150px;
+    background: rgba(124, 58, 237, 0.15);
+}
+
+.auth-page::after {
+    bottom: -150px;
+    right: -150px;
+    background: rgba(56, 189, 248, 0.12);
+}
+
+/* 3. AUTHENTICATION CONTAINER */
+
+.auth-container {
+    width: 100%;
+    max-width: 460px;
+    padding: 42px 40px;
+    background: rgba(20, 26, 44, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 1;
+    animation: authFadeIn 0.7s ease;
+}
+
+/* 4. LOGO */
+
+.auth-logo {
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.auth-logo i {
+    color: #a78bfa;
+    margin-right: 5px;
+}
+
+.auth-logo span {
+    color: #8b5cf6;
+}
+
+/* 5. HEADINGS */
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.auth-header p {
+    color: #aab2c5;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.auth-header strong {
+    display: block;
+    color: #a78bfa;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* 6. FORM GROUPS */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+}
+
+.auth-form-group label {
+    color: #dce1ef;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.auth-input-wrapper input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #0d1222;
+    border: 1px solid #303950;
+    border-radius: 9px;
+    outline: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.3s ease;
+}
+
+.auth-input-wrapper input::placeholder {
+    color: #737d94;
+}
+
+.auth-input-wrapper input:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+/* 7. PASSWORD VISIBILITY BUTTON */
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #aab2c5;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.password-toggle:hover {
+    color: #a78bfa;
+}
+
+/* 8. FORM OPTIONS */
+
+.auth-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.auth-remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #aab2c5;
+}
+
+.auth-remember input {
+    accent-color: #8b5cf6;
+}
+
+.auth-link {
+    color: #a78bfa;
+    transition: 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+/* 9. PRIMARY BUTTON */
+
+.auth-button {
+    width: 100%;
+    min-height: 48px;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(90deg, #7c3aed, #4f46e5);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth-button i {
+    margin-left: 8px;
+}
+
+.auth-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+/* 10. DIVIDER */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #737d94;
+    font-size: 12px;
+    margin: 25px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #303950;
+}
+
+/* 11. SOCIAL BUTTONS */
+
+.auth-social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-social-button {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: 1px solid #303950;
+    border-radius: 9px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth-social-button:hover {
+    background: #202940;
+    border-color: #8b5cf6;
+}
+
+/* 12. BOTTOM TEXT */
+
+.auth-bottom-text {
+    margin-top: 25px;
+    text-align: center;
+    color: #aab2c5;
+    font-size: 13px;
+}
+
+.auth-bottom-text p {
+    margin-bottom: 8px;
+}
+
+.auth-resend-button {
+    background: none;
+    border: none;
+    color: #a78bfa;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.auth-resend-button:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+/* 13. TERMS AND CONDITIONS */
+
+.auth-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #aab2c5;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.auth-terms input {
+    margin-top: 4px;
+    accent-color: #8b5cf6;
+}
+
+/* 14. EMAIL VERIFICATION */
+
+.auth-verification-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: #a78bfa;
+    font-size: 32px;
+}
+
+/* One input containing all six digits */
+.auth-verification-code {
+    display: block;
+    width: 100%;
+    min-height: 58px;
+    padding: 14px 16px;
+    background: #0d1222;
+    border: 1px solid #303950;
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 10px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.auth-verification-code::placeholder {
+    color: #737d94;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+.auth-verification-code:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+/* 15. BACK LINKS */
+
+.auth-back-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 20px auto 0;
+    color: #aab2c5;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.auth-back-link:hover {
+    color: #a78bfa;
+}
+
+.auth-back-link i {
+    font-size: 12px;
+}
+
+/* 16. ERROR AND SUCCESS MESSAGES */
+
+.auth-message {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: none;
+}
+
+.auth-message.error {
+    display: block;
+    color: #fca5a5;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.auth-message.success {
+    display: block;
+    color: #86efac;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* 17. ANIMATION */
+
+@keyframes authFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 18. RESPONSIVE DESIGN */
+
+@media (max-width: 500px) {
+    .auth-page {
+        padding: 22px 14px;
+        align-items: center;
+    }
+
+    .auth-container {
+        max-width: 100%;
+        padding: 32px 22px;
+        border-radius: 16px;
+    }
+
+    .auth-header h1 {
+        font-size: 24px;
+    }
+
+    .auth-logo {
+        font-size: 25px;
+    }
+
+    .auth-verification-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 28px;
+    }
+
+    .auth-verification-code {
+        min-height: 54px;
+        font-size: 20px;
+        letter-spacing: 8px;
+    }
+
+    .auth-back-link {
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .auth-container {
+        padding: 28px 18px;
+    }
+
+    .auth-header h1 {
+        font-size: 22px;
+    }
+
+    .auth-verification-code {
+        letter-spacing: 6px;
+    }
+}

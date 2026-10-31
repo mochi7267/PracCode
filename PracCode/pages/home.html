@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Your PracCode dashboard. Track your coding practice, improve your typing speed, and complete daily challenges.">
+
+    <title>Dashboard | PracCode</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        /* ADDITIONAL DASHBOARD STYLES */
+
+        .dashboard-user-avatar {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 800;
+        }
+
+        .dashboard-topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dashboard-icon-button {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            background: var(--bg-card);
+            color: var(--color-text);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .dashboard-icon-button:hover {
+            border-color: var(--color-primary);
+        }
+
+        .dashboard-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dashboard-user-info {
+            min-width: 0;
+        }
+
+        .dashboard-user-info strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .dashboard-user-info span {
+            color: var(--color-text-muted);
+            font-size: 11px;
+        }
+
+        .dashboard-sidebar-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .dashboard-sidebar-footer button {
+            width: 100%;
+            padding: 11px;
+            text-align: left;
+            color: var(--color-text-muted);
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .dashboard-sidebar-footer button:hover {
+            background: var(--bg-card);
+            color: var(--color-text);
+        }
+
+        .dashboard-quick-actions button {
+            cursor: pointer;
+            font: inherit;
+            color: inherit;
+            text-align: left;
+        }
+
+        .dashboard-main {
+            min-width: 0;
+        }
+
+        .dashboard-welcome {
+            margin-bottom: 28px;
+        }
+
+        .dashboard-welcome h1 {
+            font-size: clamp(24px, 4vw, 32px);
+            margin-bottom: 7px;
+        }
+
+        .dashboard-welcome p {
+            color: var(--color-text-muted);
+        }
+
+        .dashboard-stat-card {
+            min-width: 0;
+        }
+
+        .dashboard-stat-card h3 {
+            font-size: 26px;
+            margin-top: 10px;
+        }
+
+        .dashboard-stat-card p {
+            color: var(--color-text-muted);
+            font-size: 13px;
+        }
+
+        .dashboard-section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .dashboard-section-heading h2 {
+            font-size: 20px;
+        }
+
+        .dashboard-section-heading a {
+            color: #a29dff;
+            font-size: 13px;
+        }
+
+        .dashboard-empty {
+            padding: 20px;
+            text-align: center;
+            color: var(--color-text-muted);
+        }
+
+        .dashboard-date-text {
+            color: var(--color-text-muted);
+            font-size: 13px;
+        }
+
+        /* SIDEBAR SETTINGS LINK */
+
+        .dashboard-nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dashboard-nav a.active {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-topbar-actions {
+                gap: 7px;
+            }
+
+            .dashboard-user-info {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="dashboard-page">
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+
+            <!-- LOGO -->
+            <a href="home.html" class="logo dashboard-logo">
+                Prac<span>Code</span>
+            </a>
+
+
+            <!-- USER INFORMATION -->
+            <div class="dashboard-user">
+
+                <div class="dashboard-user-avatar">U</div>
+
+                <div class="dashboard-user-info">
+                    <strong>Welcome User</strong>
+                    <span>Beginner Developer</span>
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <nav class="dashboard-nav" aria-label="Dashboard navigation">
+
+                <p class="dashboard-nav-label">MAIN MENU</p>
+
+                <a href="home.html" class="active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="typing-arena.html">
+                    <span>⌨</span>
+                    Typing Arena
+                </a>
+
+                <a href="leaderboard.html">
+                    <span>🏆</span>
+                    Leaderboard
+                </a>
+
+                <a href="profile.html">
+                    <span>👤</span>
+                    My Profile
+                </a>
+
+
+                <p class="dashboard-nav-label">MORE</p>
+
+                <a href="about.html">
+                    <span>ℹ</span>
+                    About PracCode
+                </a>
+
+                <!-- NEW SETTINGS LINK -->
+                <a href="settings.html">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR FOOTER -->
+            <div class="dashboard-sidebar-footer">
+
+                <button id="theme-toggle" type="button">
+                    ◐ &nbsp; Change Theme
+                </button>
+
+                <button id="help-button" type="button">
+                    ? &nbsp; Help Center
+                </button>
+
+                <button id="email-support" type="button">
+                    ✉ &nbsp; Contact Support
+                </button>
+
+                <button id="logout-button" type="button">
+                    ↪ &nbsp; Log Out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-main">
+
+
+            <!-- TOP BAR -->
+            <header class="dashboard-topbar">
+
+                <div>
+
+                    <button
+                        id="sidebar-toggle"
+                        class="dashboard-icon-button"
+                        type="button"
+                        aria-label="Toggle sidebar"
+                        aria-expanded="false">
+
+                        ☰
+
+                    </button>
+
+                </div>
+
+
+                <div class="dashboard-topbar-actions">
+
+                    <span
+                        id="dashboard-date"
+                        class="dashboard-date-text">
+                    </span>
+
+
+                    <button
+                        id="dashboard-notifications"
+                        class="dashboard-icon-button"
+                        type="button"
+                        aria-label="Notifications">
+
+                        ♧
+
+                    </button>
+
+
+                    <a
+                        href="profile.html"
+                        class="dashboard-user"
+                        aria-label="View your profile">
+
+                        <div class="dashboard-user-avatar">U</div>
+
+                    </a>
+
+                </div>
+
+            </header>
+
+
+            <!-- WELCOME SECTION -->
+            <section class="dashboard-welcome">
+
+                <h1 id="dashboard-welcome">
+                    Welcome back, Developer! 👋
+                </h1>
+
+                <p>
+                    Ready to practice some code today?
+                    Keep learning and improving your skills.
+                </p>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+            <section class="dashboard-stats">
+
+                <div class="card dashboard-stat-card">
+
+                    <span>⌨️ Practice Sessions</span>
+
+                    <h3 id="total-practice">0</h3>
+
+                    <p>Total completed sessions</p>
+
+                </div>
+
+
+                <div class="card dashboard-stat-card">
+
+                    <span>⏱️ Practice Time</span>
+
+                    <h3 id="total-minutes">0</h3>
+
+                    <p>Total practice minutes</p>
+
+                </div>
+
+
+                <div class="card dashboard-stat-card">
+
+                    <span>⚡ Average WPM</span>
+
+                    <h3 id="average-wpm">0</h3>
+
+                    <p>Words per minute</p>
+
+                </div>
+
+
+                <div class="card dashboard-stat-card">
+
+                    <span>🎯 Accuracy</span>
+
+                    <h3 id="accuracy">0%</h3>
+
+                    <p>Average typing accuracy</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- DAILY CHALLENGE -->
+            <section class="dashboard-challenge">
+
+                <div class="dashboard-section-heading">
+
+                    <h2>🎯 Daily Coding Challenge</h2>
+
+                    <span class="badge badge-primary">
+                        Daily Task
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div>
+
+                        <h3>Today's Practice Challenge</h3>
+
+                        <p class="text-muted">
+                            Complete a typing challenge to improve your
+                            coding speed and accuracy.
+                        </p>
+
+                    </div>
+
+
+                    <div class="dashboard-challenge-actions">
+
+                        <a
+                            href="typing-arena.html"
+                            class="btn btn-primary"
+                            id="start-challenge">
+
+                            Start Challenge →
+
+                        </a>
+
+
+                        <button
+                            class="btn btn-secondary"
+                            id="complete-challenge"
+                            type="button">
+
+                            Mark as Completed
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="dashboard-quick-actions">
+
+                <div class="dashboard-section-heading">
+                    <h2>Quick Actions</h2>
+                </div>
+
+
+                <div class="dashboard-action-grid">
+
+                    <button
+                        class="card"
+                        type="button"
+                        data-dashboard-action="practice">
+
+                        <span class="feature-icon">⌨️</span>
+
+                        <h3>Start Practicing</h3>
+
+                        <p class="text-muted">
+                            Enter the typing arena.
+                        </p>
+
+                    </button>
+
+
+                    <button
+                        class="card"
+                        type="button"
+                        data-dashboard-action="leaderboard">
+
+                        <span class="feature-icon">🏆</span>
+
+                        <h3>View Leaderboard</h3>
+
+                        <p class="text-muted">
+                            Check your ranking.
+                        </p>
+
+                    </button>
+
+
+                    <button
+                        class="card"
+                        type="button"
+                        data-dashboard-action="profile">
+
+                        <span class="feature-icon">👤</span>
+
+                        <h3>My Profile</h3>
+
+                        <p class="text-muted">
+                            View your personal information.
+                        </p>
+
+                    </button>
+
+
+                    <button
+                        class="card"
+                        type="button"
+                        data-dashboard-action="about">
+
+                        <span class="feature-icon">💡</span>
+
+                        <h3>About PracCode</h3>
+
+                        <p class="text-muted">
+                            Learn more about the platform.
+                        </p>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRACTICE HISTORY AND ACHIEVEMENTS -->
+            <section class="dashboard-content-grid">
+
+
+                <!-- PRACTICE HISTORY -->
+                <div class="dashboard-activity">
+
+                    <div class="dashboard-section-heading">
+
+                        <h2>Recent Practice</h2>
+
+                        <a href="typing-arena.html">
+                            Practice More →
+                        </a>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div id="practice-history">
+
+                            <div class="dashboard-empty">
+
+                                <p>No practice sessions yet.</p>
+
+                                <p>
+                                    Start practicing to see your activity here!
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACHIEVEMENTS -->
+                <div class="dashboard-achievements">
+
+                    <div class="dashboard-section-heading">
+                        <h2>Achievements</h2>
+                    </div>
+
+
+                    <div class="card">
+
+                        <div id="achievement-list">
+
+                            <div class="dashboard-empty">
+
+                                <p>🏅</p>
+
+                                <p>
+                                    Your achievements will appear here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+
+                <p>
+                    © <span id="dashboard-year"></span> PracCode.
+                    Practice. Type. Improve.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

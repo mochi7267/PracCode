@@ -1,0 +1,817 @@
+
+/* ========================================
+   PRACCODE - GLOBAL STYLESHEET
+======================================== */
+
+/* 1. CSS VARIABLES */
+:root {
+    --bg-primary: #080b16;
+    --bg-secondary: #101629;
+    --bg-card: #151d33;
+    --bg-card-hover: #1b2742;
+
+    --color-primary: #6c63ff;
+    --color-primary-hover: #827aff;
+    --color-secondary: #00d4ff;
+
+    --color-text: #f4f5ff;
+    --color-text-muted: #a1a9c3;
+
+    --color-success: #22c55e;
+    --color-danger: #ef4444;
+    --color-warning: #f59e0b;
+
+    --border-color: rgba(255, 255, 255, 0.09);
+
+    --gradient-primary: linear-gradient(
+        135deg,
+        #6c63ff,
+        #00bfff
+    );
+
+    --gradient-background: linear-gradient(
+        135deg,
+        #080b16,
+        #111a35
+    );
+
+    --font-primary: 'Inter', Arial, sans-serif;
+
+    --border-radius: 12px;
+    --border-radius-large: 20px;
+
+    --transition: 0.3s ease;
+
+    --container-width: 1200px;
+}
+
+/* 2. RESET AND BASE STYLES */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-primary);
+    background: var(--bg-primary);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-primary);
+}
+
+button,
+input,
+textarea,
+select {
+    font-size: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style-position: inside;
+}
+
+::selection {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+/* 3. SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #343d5c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* 4. GENERAL CONTAINERS */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: -0.8px;
+}
+
+.section-description {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* 5. TEXT STYLES */
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Consistent heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text);
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.7;
+}
+
+/* 6. BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    box-shadow: 0 5px 20px rgba(108, 99, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.35);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--color-primary);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 7. NAVIGATION BAR */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: rgba(8, 11, 22, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(139, 92, 246, 0.16);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* PracCode Logo */
+
+.logo {
+    font-size: 26px;
+    font-weight: 850;
+    letter-spacing: -1.2px;
+    white-space: nowrap;
+    color: var(--color-text);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+
+.logo span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Navigation Links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 10px 16px;
+    border-radius: 9px;
+
+    color: var(--color-text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    background: rgba(139, 92, 246, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Active Page */
+
+.nav-links a.active {
+    color: #ffffff;
+    background: rgba(108, 99, 255, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(139, 92, 246, 0.25);
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--color-secondary);
+}
+
+/* Right-side Navigation Actions */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.nav-actions button {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+
+    transition: var(--transition);
+}
+
+.nav-actions button:hover {
+    background: rgba(108, 99, 255, 0.18);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Button */
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+    font-size: 25px;
+
+    transition: var(--transition);
+}
+
+.menu-toggle:hover {
+    background: rgba(108, 99, 255, 0.18);
+    border-color: var(--color-primary);
+}
+
+/* Light Theme Navigation */
+
+[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom-color: rgba(108, 99, 255, 0.15);
+}
+
+[data-theme="light"] .nav-links a:hover {
+    color: var(--color-primary);
+    background: rgba(108, 99, 255, 0.08);
+}
+
+[data-theme="light"] .nav-links a.active {
+    color: var(--color-primary);
+    background: rgba(108, 99, 255, 0.12);
+}
+
+[data-theme="light"] .nav-actions button,
+[data-theme="light"] .menu-toggle {
+    color: var(--color-text);
+    background: rgba(108, 99, 255, 0.06);
+}
+
+/* 8. CARDS */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    padding: 25px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(108, 99, 255, 0.4);
+    transform: translateY(-4px);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* 9. FORM ELEMENTS */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 13px 15px;
+    color: var(--color-text);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+.form-control::placeholder {
+    color: #737d99;
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* 10. BADGES */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.badge-primary {
+    background: rgba(108, 99, 255, 0.15);
+    color: #a29dff;
+}
+
+.badge-success {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--color-success);
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--color-warning);
+}
+
+/* 11. DIVIDERS */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    margin: 25px 0;
+}
+
+/* 12. ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-fade {
+    animation: fadeIn 0.7s ease forwards;
+}
+
+.animate-up {
+    animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* 13. REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 14. TOAST NOTIFICATION */
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 2000;
+    max-width: calc(100% - 40px);
+    padding: 15px 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeUp 0.3s ease;
+}
+
+/* 15. LOADING SPINNER */
+
+.spinner {
+    width: 35px;
+    height: 35px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 16. FOOTER */
+
+.footer {
+    padding: 35px 0;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+/* 17. LIGHT THEME SUPPORT */
+
+[data-theme="light"] {
+    --bg-primary: #f5f7ff;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f1ff;
+
+    --color-text: #171b2e;
+    --color-text-muted: #68708a;
+
+    --border-color: rgba(20, 25, 50, 0.12);
+}
+
+[data-theme="light"] .menu-toggle {
+    color: var(--color-text);
+}
+
+/* 18. ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 3px;
+}
+
+/* 19. RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    .section {
+        padding: 75px 0;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 68px;
+        padding: 0 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+
+        padding: 18px 5% 22px;
+
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 12px 15px;
+    }
+
+    .nav-links a.active::after {
+        left: 15px;
+        bottom: 50%;
+        transform: translateY(50%);
+        width: 3px;
+        height: 20px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 92%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-description {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-actions button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* 20. REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Consistent navigation icon alignment */
+.dashboard-nav a,
+.sidebar-nav a,
+.dashboard-sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.dashboard-nav a i,
+.sidebar-nav a i,
+.dashboard-sidebar a i {
+    width: 22px;
+    min-width: 22px;
+    text-align: center;
+    line-height: 1;
+}

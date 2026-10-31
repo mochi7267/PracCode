@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b16">
+
+    <title>About PracCode</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+
+<body class="dashboard-page about-page">
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+
+            <div class="sidebar-logo">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">P</span>
+                    <span>Prac<span>Code</span></span>
+                </a>
+            </div>
+
+            <nav class="dashboard-nav" aria-label="Main navigation">
+
+                <p class="sidebar-heading">MENU</p>
+
+                <a href="home.html" class="sidebar-link">
+                    <span class="sidebar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/>
+                        </svg>
+                    </span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="typing-arena.html" class="sidebar-link">
+                    <span class="sidebar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2.5" y="5" width="19" height="14" rx="2"/>
+                            <path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 15h8"/>
+                        </svg>
+                    </span>
+                    <span>Typing Arena</span>
+                </a>
+
+                <a href="leaderboard.html" class="sidebar-link">
+                    <span class="sidebar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/>
+                            <path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"/>
+                        </svg>
+                    </span>
+                    <span>Leaderboard</span>
+                </a>
+
+                <a href="profile.html" class="sidebar-link">
+                    <span class="sidebar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="4"/>
+                            <path d="M4 21a8 8 0 0 1 16 0"/>
+                        </svg>
+                    </span>
+                    <span>My Profile</span>
+                </a>
+
+                <a href="about.html" class="sidebar-link active"
+                   aria-current="page">
+                    <span class="sidebar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 11v5M12 8h.01"/>
+                        </svg>
+                    </span>
+                    <span>About PracCode</span>
+                </a>
+
+                <a href="settings.html" class="sidebar-link">
+                    <span class="sidebar-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.6a8 8 0 0 1-1.5.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.5-.9l-1.7.6-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.8l-1.4-1.1 1.4-2.4 1.7.6a8 8 0 0 1 1.5-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.5.9l1.7-.6 1.4 2.4-1.4 1.1a7 7 0 0 1 0 1.8z"/>
+                        </svg>
+                    </span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <!-- SIDEBAR BOTTOM -->
+            <div class="dashboard-sidebar-bottom">
+
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar">U</div>
+
+                    <div class="sidebar-user-info">
+                        <strong>User</strong>
+                        <span>PracCode Member</span>
+                    </div>
+                </div>
+
+                <button id="theme-toggle"
+                        class="sidebar-theme-toggle"
+                        type="button"
+                        aria-label="Toggle theme">
+                    <span aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3a9 9 0 1 0 9 9h-9z"/>
+                            <path d="M12 3v9h9a9 9 0 0 0-9-9z"/>
+                        </svg>
+                    </span>
+                    <span>Toggle Theme</span>
+                </button>
+
+                <button id="help-button"
+                        class="sidebar-bottom-link"
+                        type="button">
+                    <span aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-1.1 1-1.8 1.3-1.8 3M12 17h.01"/>
+                        </svg>
+                    </span>
+                    <span>Help Center</span>
+                </button>
+
+                <button id="email-support"
+                        class="sidebar-bottom-link"
+                        type="button">
+                    <span aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="m3 7 9 6 9-6"/>
+                        </svg>
+                    </span>
+                    <span>Contact Support</span>
+                </button>
+
+                <button id="logout-button"
+                        class="sidebar-bottom-link"
+                        type="button">
+                    <span aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 17l5-5-5-5M15 12H3"/>
+                            <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>
+                        </svg>
+                    </span>
+                    <span>Log Out</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-main">
+
+            <!-- TOPBAR -->
+            <header class="dashboard-topbar">
+
+                <div class="dashboard-topbar-left">
+
+                    <button id="sidebar-toggle"
+                            class="sidebar-toggle"
+                            type="button"
+                            aria-label="Toggle sidebar"
+                            aria-expanded="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+
+                    <div>
+                        <h2>About PracCode</h2>
+                        <p class="about-topbar-subtitle">
+                            Get to know our platform
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-topbar-right">
+                    <span class="about-topbar-label">
+                        Learn. Practice. Improve.
+                    </span>
+                </div>
+
+            </header>
+
+            <!-- ABOUT CONTENT -->
+            <div class="about-container">
+
+                <!-- HERO SECTION -->
+                <section class="about-hero">
+
+                    <div class="about-hero-content">
+
+                        <span class="about-eyebrow">
+                            WELCOME TO PRACCODE
+                        </span>
+
+                        <h1>
+                            Practice Today.
+                            <span>Code With Confidence.</span>
+                        </h1>
+
+                        <p>
+                            PracCode is a practice platform designed to help
+                            beginners improve their coding-related typing
+                            skills, build confidence, and develop better
+                            practice habits.
+                        </p>
+
+                        <a href="typing-arena.html"
+                           class="about-primary-button">
+                            Start Practicing
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                    </div>
+
+                    <div class="about-hero-visual">
+
+                        <div class="about-code-window">
+
+                            <div class="about-window-header">
+                                <div class="about-window-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <span>practice.html</span>
+                            </div>
+
+                            <div class="about-code-content">
+                                <p><span class="code-purple">01</span>
+                                    <span class="code-blue">&lt;html&gt;</span>
+                                </p>
+
+                                <p><span class="code-purple">02</span>
+                                    &nbsp;&nbsp;<span class="code-blue">&lt;body&gt;</span>
+                                </p>
+
+                                <p><span class="code-purple">03</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">&lt;h1&gt;</span>
+                                </p>
+
+                                <p><span class="code-purple">04</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keep Learning!
+                                </p>
+
+                                <p><span class="code-purple">05</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">&lt;/h1&gt;</span>
+                                </p>
+
+                                <p><span class="code-purple">06</span>
+                                    &nbsp;&nbsp;<span class="code-blue">&lt;/body&gt;</span>
+                                </p>
+
+                                <p><span class="code-purple">07</span>
+                                    <span class="code-blue">&lt;/html&gt;</span>
+                                </p>
+                            </div>
+
+                            <div class="about-code-footer">
+                                <span class="about-code-indicator"></span>
+                                Ready to practice
+                            </div>
+
+                        </div>
+
+                        <div class="about-floating-card">
+                            <span aria-hidden="true">⌨</span>
+                            <div>
+                                <strong>Keep Practicing</strong>
+                                <small>Improve one session at a time</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- MISSION SECTION -->
+                <section class="about-section">
+
+                    <div class="about-section-heading">
+                        <span class="about-eyebrow">OUR PURPOSE</span>
+                        <h2>Why <span>PracCode?</span></h2>
+                        <p>
+                            Learning takes practice, and every small
+                            improvement brings you closer to your goals.
+                        </p>
+                    </div>
+
+                    <div class="about-mission-grid">
+
+                        <article class="about-info-card mission-card">
+                            <div class="about-card-icon">🎯</div>
+                            <h3>Our Mission</h3>
+                            <p>
+                                Our mission is to provide beginners with an
+                                approachable space where they can practice
+                                typing coding-related text, improve their
+                                accuracy, and become more confident through
+                                consistent practice.
+                            </p>
+                        </article>
+
+                        <article class="about-info-card vision-card">
+                            <div class="about-card-icon">🚀</div>
+                            <h3>Our Vision</h3>
+                            <p>
+                                We envision a learning environment where
+                                beginners feel encouraged to practice,
+                                recognize their progress, and continue
+                                developing their skills at their own pace.
+                            </p>
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <!-- FEATURES SECTION -->
+                <section class="about-section">
+
+                    <div class="about-section-heading">
+                        <span class="about-eyebrow">WHAT WE OFFER</span>
+                        <h2>Explore the <span>Features</span></h2>
+                        <p>
+                            PracCode includes tools that make regular
+                            coding-related typing practice more engaging.
+                        </p>
+                    </div>
+
+                    <div class="about-feature-grid">
+
+                        <article class="about-feature-card">
+                            <div class="about-feature-icon purple-icon">⌨</div>
+                            <h3>Typing Arena</h3>
+                            <p>
+                                Practice typing HTML code and other
+                                coding-related text while working on your
+                                speed and accuracy.
+                            </p>
+                        </article>
+
+                        <article class="about-feature-card">
+                            <div class="about-feature-icon blue-icon">📊</div>
+                            <h3>Progress Tracking</h3>
+                            <p>
+                                Review your typing speed, accuracy, errors,
+                                and practice results after each session.
+                            </p>
+                        </article>
+
+                        <article class="about-feature-card">
+                            <div class="about-feature-icon pink-icon">🏆</div>
+                            <h3>Leaderboard</h3>
+                            <p>
+                                Explore the leaderboard and see how practice
+                                performance is presented in the platform.
+                            </p>
+                        </article>
+
+                        <article class="about-feature-card">
+                            <div class="about-feature-icon cyan-icon">👤</div>
+                            <h3>Personal Profile</h3>
+                            <p>
+                                View your profile, practice statistics,
+                                achievements, and personal information.
+                            </p>
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <!-- HOW IT WORKS -->
+                <section class="about-section about-how-section">
+
+                    <div class="about-section-heading">
+                        <span class="about-eyebrow">GETTING STARTED</span>
+                        <h2>How It <span>Works</span></h2>
+                        <p>
+                            Getting started with PracCode is simple.
+                            Follow these steps to begin practicing.
+                        </p>
+                    </div>
+
+                    <div class="about-steps">
+
+                        <article class="about-step">
+                            <div class="about-step-number">01</div>
+                            <div>
+                                <h3>Visit the Typing Arena</h3>
+                                <p>
+                                    Open the Typing Arena to access the
+                                    available practice activities.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="about-step">
+                            <div class="about-step-number">02</div>
+                            <div>
+                                <h3>Choose Your Practice Settings</h3>
+                                <p>
+                                    Select your preferred difficulty,
+                                    duration, and practice material.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="about-step">
+                            <div class="about-step-number">03</div>
+                            <div>
+                                <h3>Start Typing</h3>
+                                <p>
+                                    Type the displayed text carefully and
+                                    focus on improving your accuracy.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="about-step">
+                            <div class="about-step-number">04</div>
+                            <div>
+                                <h3>Review Your Results</h3>
+                                <p>
+                                    Check your results and use them as a
+                                    guide for your next practice session.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </section>
+
+                <!-- CALL TO ACTION -->
+                <section class="about-cta">
+
+                    <div class="about-cta-content">
+                        <span class="about-eyebrow">
+                            YOUR JOURNEY STARTS HERE
+                        </span>
+
+                        <h2>
+                            Every Expert Was Once
+                            <span>a Beginner.</span>
+                        </h2>
+
+                        <p>
+                            Keep practicing, stay consistent, and celebrate
+                            every improvement along the way.
+                        </p>
+
+                        <a href="typing-arena.html"
+                           class="about-primary-button">
+                            Go to Typing Arena
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <div class="about-cta-decoration"
+                         aria-hidden="true">&lt;/&gt;</div>
+
+                </section>
+
+                <!-- FOOTER -->
+                <footer class="dashboard-footer about-footer">
+                    <p>
+                        © <span id="about-year"></span> PracCode.
+                        All rights reserved.
+                    </p>
+
+                    <p>Learn. Practice. Improve.</p>
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+    <script>
+        const aboutYear = document.getElementById("about-year");
+
+        if (aboutYear) {
+            aboutYear.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | PracCode</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Authentication CSS -->
+    <link rel="stylesheet" href="../css/authentication.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Login Page Styling -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* PAGE */
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* LOGIN CONTAINER */
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 35px;
+            text-align: center;
+        }
+
+        /* LOGO */
+        .auth-logo {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 30px;
+            text-decoration: none;
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .auth-logo i {
+            font-size: 25px;
+        }
+
+        /* HEADER */
+        .auth-header {
+            width: 100%;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .auth-header h1 {
+            margin: 0 0 10px;
+            font-size: 30px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .auth-header p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* FORM */
+        .auth-form {
+            width: 100%;
+            text-align: left;
+        }
+
+        .auth-form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .auth-form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        /* INPUTS */
+        .auth-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .auth-input-wrapper > i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            font-size: 15px;
+            pointer-events: none;
+        }
+
+        .auth-input-wrapper input {
+            display: block;
+            width: 100%;
+            min-width: 0;
+            height: 48px;
+            padding: 12px 45px;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: normal;
+            outline: none;
+        }
+
+        .auth-input-wrapper input::placeholder {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* PASSWORD TOGGLE */
+        .auth-input-wrapper .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .password-toggle i {
+            font-size: 15px;
+        }
+
+        /* REMEMBER ME AND FORGOT PASSWORD */
+        .auth-form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            margin: 5px 0 22px;
+            font-size: 13px;
+        }
+
+        .auth-remember {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .auth-remember input {
+            width: 15px;
+            height: 15px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .auth-form-options a {
+            text-decoration: none;
+        }
+
+        /* SIGN IN BUTTON */
+        .auth-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .auth-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .auth-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* FORM MESSAGE */
+        .auth-message {
+            width: 100%;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* DIVIDER */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            margin: 25px 0;
+            font-size: 12px;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color, #30364a);
+        }
+
+
+        /* REGISTER LINK */
+        .auth-bottom-text {
+            margin: 25px 0 18px;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .auth-bottom-text a {
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* BACK TO HOMEPAGE */
+        .auth-back-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 0 auto 20px;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        /* TERMS */
+        .auth-terms {
+            max-width: 350px;
+            margin: 0 auto;
+            font-size: 11px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .auth-terms a {
+            text-decoration: none;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 480px) {
+            .auth-page {
+                padding: 20px 14px;
+            }
+
+            .auth-container {
+                padding: 25px 18px;
+            }
+
+            .auth-header h1 {
+                font-size: 26px;
+            }
+
+            .auth-form-options {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-container">
+
+        <!-- LOGO -->
+        <a href="../index.html" class="auth-logo">
+            <i class="fa-solid fa-code"></i>
+            <span>Prac<span class="gradient-text">Code</span></span>
+        </a>
+
+        <!-- HEADER -->
+        <div class="auth-header">
+            <h1>Welcome Back!</h1>
+            <p>Sign in to continue your coding journey.</p>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form" class="auth-form">
+
+            <!-- EMAIL -->
+            <div class="auth-form-group">
+
+                <label for="login-email">
+                    Email Address
+                </label>
+
+                <div class="auth-input-wrapper">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="login-email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="auth-form-group">
+
+                <label for="login-password">
+                    Password
+                </label>
+
+                <div class="auth-input-wrapper">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-password-toggle="login-password"
+                        aria-label="Show password"
+                    >
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- REMEMBER ME AND FORGOT PASSWORD -->
+            <div class="auth-form-options">
+
+                <label class="auth-remember">
+
+                    <input
+                        type="checkbox"
+                        name="remember"
+                    >
+
+                    <span>Remember me</span>
+
+                </label>
+
+                <a href="forgot-password.html">
+                    Forgot password?
+                </a>
+
+            </div>
+
+            <!-- SIGN IN BUTTON -->
+            <button type="submit" class="auth-button">
+
+                <span>Sign In</span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+            <!-- FORM MESSAGE -->
+            <div
+                id="login-message"
+                class="auth-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </form>
+
+        <!-- REGISTER LINK -->
+        <p class="auth-bottom-text">
+            Don't have an account?
+            <a href="register.html">Create an account</a>
+        </p>
+
+        <!-- BACK TO HOMEPAGE -->
+        <a href="../index.html" class="auth-back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to homepage</span>
+        </a>
+
+        <!-- TERMS -->
+        <p class="auth-terms">
+            By continuing, you agree to our
+            <a href="#">Terms of Service</a> and
+            <a href="#">Privacy Policy</a>.
+        </p>
+
+    </main>
+
+    <!-- AUTHENTICATION JAVASCRIPT -->
+    <script src="../js/authentication.js"></script>
+
+</body>
+</html>

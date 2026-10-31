@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Customize your PracCode experience.">
+
+    <title>Settings | PracCode</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Settings CSS -->
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+
+<body class="settings-page">
+
+    <!-- HEADER -->
+    <header class="settings-header">
+
+        <a href="home.html" class="settings-logo">
+            <span class="settings-logo-icon">P</span>
+            <span>PracCode</span>
+        </a>
+
+        <nav class="settings-navigation">
+            <a href="home.html">Dashboard</a>
+            <a href="typing-arena.html">Practice</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+
+        <a href="home.html" class="settings-back-button">
+            ← Back to Dashboard
+        </a>
+
+    </header>
+
+
+    <!-- MAIN SETTINGS CONTENT -->
+    <main class="settings-container">
+
+        <!-- PAGE INTRODUCTION -->
+        <section class="settings-intro">
+
+            <span class="settings-eyebrow">PERSONALIZATION</span>
+
+            <h1>Settings ⚙️</h1>
+
+            <p>
+                Customize your PracCode experience.
+                Manage your appearance, sound effects, and preferences.
+            </p>
+
+        </section>
+
+
+        <!-- SETTINGS STATUS -->
+        <div id="settings-status" class="settings-status">
+            Your settings are up to date.
+        </div>
+
+
+        <!-- APPEARANCE SETTINGS -->
+        <section class="settings-card">
+
+            <div class="settings-card-heading">
+
+                <div class="settings-heading-icon">🎨</div>
+
+                <div>
+                    <h2>Appearance</h2>
+                    <p>Customize how PracCode looks.</p>
+                </div>
+
+            </div>
+
+
+            <!-- THEME OPTION -->
+            <div class="settings-option">
+
+                <div class="settings-option-info">
+                    <h3>Color Theme</h3>
+                    <p>Switch between dark and light mode.</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="settings-theme-toggle"
+                    class="settings-button"
+                >
+                    Switch to Light Mode
+                </button>
+
+            </div>
+
+
+            <div class="settings-divider"></div>
+
+
+            <!-- FONT SIZE OPTION -->
+            <div class="settings-option">
+
+                <div class="settings-option-info">
+                    <h3>Font Size</h3>
+                    <p>Choose your preferred text size.</p>
+                </div>
+
+                <select id="font-size-select" class="settings-select">
+                    <option value="small">Small</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="large">Large</option>
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOUND SETTINGS -->
+        <section class="settings-card">
+
+            <div class="settings-card-heading">
+
+                <div class="settings-heading-icon">🔊</div>
+
+                <div>
+                    <h2>Sound Preferences</h2>
+                    <p>Manage sounds during your practice sessions.</p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-option">
+
+                <div class="settings-option-info">
+                    <h3>Sound Effects</h3>
+                    <p>Enable or disable practice sound effects.</p>
+                </div>
+
+                <label class="settings-switch">
+
+                    <input
+                        type="checkbox"
+                        id="sound-effects-toggle"
+                        checked
+                    >
+
+                    <span class="settings-slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESET SETTINGS -->
+        <section class="settings-reset-card">
+
+            <div>
+                <h2>Reset Settings</h2>
+
+                <p>
+                    Restore all preferences to their default values.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                id="reset-settings"
+                class="settings-reset-button"
+            >
+                Reset Settings
+            </button>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="settings-footer">
+
+            <p>
+                © <span id="settings-year"></span> PracCode.
+                Keep practicing. Keep improving.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/settings.js"></script>
+
+    <script>
+        const settingsYear = document.querySelector("#settings-year");
+
+        if (settingsYear) {
+            settingsYear.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+</html>

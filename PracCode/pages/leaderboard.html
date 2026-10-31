@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="View PracCode player rankings and compare coding typing performance.">
+
+    <title>Leaderboard | PracCode</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Leaderboard Styles -->
+    <link rel="stylesheet" href="../css/leaderboard.css">
+</head>
+
+<body class="leaderboard-page">
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="navbar-container">
+
+            <a href="home.html" class="logo">
+                Prac<span>Code</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle"
+                aria-label="Toggle navigation">
+                ☰
+            </button>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="home.html">Dashboard</a>
+                <a href="typing-arena.html">Practice</a>
+                <a href="leaderboard.html" class="active">Leaderboard</a>
+                <a href="profile.html">Profile</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="leaderboard-container">
+
+        <a href="home.html" class="leaderboard-back">
+            ← Back to Dashboard
+        </a>
+
+        <!-- PAGE HEADER -->
+        <section class="leaderboard-header">
+            <h1>
+                🏆 <span class="gradient-text">Leaderboard</span>
+            </h1>
+
+            <p>
+                See how you rank against other PracCode players.
+                Keep practicing and climb to the top!
+            </p>
+        </section>
+
+        <!-- FILTERS AND SORTING -->
+        <section class="leaderboard-filters">
+
+            <div class="difficulty-filters">
+                <button class="active" data-difficulty="All" type="button">
+                    All
+                </button>
+
+                <button data-difficulty="Easy" type="button">
+                    Easy
+                </button>
+
+                <button data-difficulty="Medium" type="button">
+                    Medium
+                </button>
+
+                <button data-difficulty="Hard" type="button">
+                    Hard
+                </button>
+
+                <button data-difficulty="Advanced" type="button">
+                    Advanced
+                </button>
+            </div>
+
+            <div class="leaderboard-sort-control">
+                <label for="leaderboard-sort">Sort by:</label>
+
+                <select id="leaderboard-sort">
+                    <option value="wpm">Highest WPM</option>
+                    <option value="accuracy">Best Accuracy</option>
+                    <option value="name">Player Name</option>
+                </select>
+            </div>
+
+        </section>
+
+        <!-- TOP THREE PLAYERS -->
+        <section class="leaderboard-top-section">
+
+            <div class="leaderboard-section-heading">
+                <h2>Top Players</h2>
+                <p>Meet the fastest players on PracCode.</p>
+            </div>
+
+            <div class="leaderboard-podium">
+
+                <!-- SECOND PLACE -->
+                <div class="podium-card second" id="second-place">
+                    <div class="podium-medal">🥈</div>
+                    <div class="podium-avatar">S</div>
+                    <h3>Loading...</h3>
+                    <p>2nd Place</p>
+                    <span class="podium-score">-- WPM</span>
+                </div>
+
+                <!-- FIRST PLACE -->
+                <div class="podium-card first" id="first-place">
+                    <div class="podium-medal">🥇</div>
+                    <div class="podium-avatar">C</div>
+                    <h3>Loading...</h3>
+                    <p>1st Place</p>
+                    <span class="podium-score">-- WPM</span>
+                </div>
+
+                <!-- THIRD PLACE -->
+                <div class="podium-card third" id="third-place">
+                    <div class="podium-medal">🥉</div>
+                    <div class="podium-avatar">D</div>
+                    <h3>Loading...</h3>
+                    <p>3rd Place</p>
+                    <span class="podium-score">-- WPM</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PLAYER RANKINGS -->
+        <section class="leaderboard-rankings-section">
+
+            <div class="leaderboard-section-heading">
+                <h2>Player Rankings</h2>
+                <p>Compare typing speed and accuracy.</p>
+            </div>
+
+            <div class="leaderboard-table-container">
+
+                <table class="leaderboard-table">
+
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Difficulty</th>
+                            <th>WPM</th>
+                            <th>Accuracy</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="leaderboard-list">
+                        <tr>
+                            <td colspan="5" class="leaderboard-empty">
+                                Loading player rankings...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <button
+                id="load-more-players"
+                class="leaderboard-load-more"
+                type="button">
+                Load More Players
+            </button>
+
+        </section>
+
+        <!-- YOUR RANK -->
+        <section class="leaderboard-your-rank">
+
+            <div>
+                <h3>Your Current Ranking</h3>
+                <p>
+                    Keep practicing to improve your leaderboard position.
+                </p>
+            </div>
+
+            <div class="your-rank-number" id="your-rank">
+                --
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                © <span id="current-year"></span> PracCode.
+                Practice. Type. Improve.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/leaderboard.js"></script>
+
+    <script>
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
