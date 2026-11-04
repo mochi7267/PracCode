@@ -733,12 +733,12 @@ async function saveTypingResult(timeUsed) {
     const status = document.querySelector("#typing-save-status");
 
     try {
-        const response = await fetch("/api/practice/sessions", {
+        const response = await fetch("https://praccode-api.joshuarabino7267.workers.dev/api/practice/sessions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            credentials: "same-origin",
+            credentials: "include",
             body: JSON.stringify({
                 language: result.language,
                 difficulty: result.difficulty,
