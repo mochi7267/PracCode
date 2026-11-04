@@ -15,5 +15,8 @@
     "express-session": "^1.18.1",
     "multer": "^2.5.0",
     "mysql2": "^3.11.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.157.0"
   }
 }

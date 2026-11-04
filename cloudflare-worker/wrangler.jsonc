@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "praccode-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-04",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "praccode_db",
+      "database_id": "d89b7418-0992-453b-bcd2-ade975b83db6"
+    }
+  ]
+}

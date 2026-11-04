@@ -1,14 +1,13 @@
-
 // ============================================
 // PRACCODE AUTHENTICATION
-// Node.js + Express API
+// Cloudflare Workers + D1 API
 // Login + Registration + Success Popup
 // ============================================
 
 (() => {
   "use strict";
 
-  const API = "/api/auth";
+  const API = "https://praccode-api.joshuarabino7267.workers.dev/api/auth";
 
   // ============================================
   // DISPLAY ERROR / SUCCESS MESSAGES
@@ -36,12 +35,12 @@
         headers: {
           "Content-Type": "application/json"
         },
-        credentials: "same-origin",
+        credentials: "include",
         body: JSON.stringify(data)
       });
     } catch {
       throw new Error(
-        "Cannot reach the PracCode server. Make sure Node.js is running."
+        "Cannot connect to PracCode. Please check your internet connection and try again."
       );
     }
 
@@ -49,7 +48,7 @@
 
     if (!contentType.includes("application/json")) {
       throw new Error(
-        `Server returned an unexpected response (HTTP ${response.status}). Check that Node.js is running.`
+        `Server returned an unexpected response (HTTP ${response.status}).`
       );
     }
 
