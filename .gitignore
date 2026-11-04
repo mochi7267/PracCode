@@ -1,8 +1,14 @@
-node_modules/
+# Environment variables and secrets
 .env
-.DS_Store
-npm-debug.log*
 
+# SSL certificates
+*.pem
+
+# Database backups
+praccode_backup.sql
+
+# Dependencies
+node_modules/
+
+# User-uploaded files
 uploads/
-
-cloudflare-worker/.wrangler/
